@@ -8,6 +8,7 @@
 //---------Sintaxis y Ejemplo---------//
 
 const jugador = {
+
     id:1,
     nombre:"Lionel Messi",
     edad:35,
@@ -24,7 +25,8 @@ const jugador = {
         championsLeague:4, 
         copasLibertadores:0
     }
-} ;
+
+};
 
 // console.log(jugador)
 
@@ -119,6 +121,8 @@ class Alumno {
 
     }
 
+    apellido = "Vela"
+
     saludar() {
         console.log(`Hola me llamo ${this.nombre} y tengo ${this.edad} años.`);
     }
@@ -126,12 +130,13 @@ class Alumno {
     bardear(insulto) {
         console.log(`¿Qué haces ${insulto}?`);
         this.saludar()
+        console.log(this.apellido)
     }
 }
 
 const alumno1 = new Alumno("Carlos", 12);
 
-alumno1.bardear("gato");
+alumno1.bardear("Gil")
 
 
 
