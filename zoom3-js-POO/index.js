@@ -1,4 +1,5 @@
 class Alumno {
+
     constructor(nombre, edad) {
         this.nombre = nombre;
         this.edad = edad;
@@ -11,6 +12,7 @@ class Alumno {
     bardear(insulto) {
         console.log(`¿Qué haces ${insulto}?`);
     }
+    
 }
 
 const alumno1 = new Alumno("Carlos", 12);
