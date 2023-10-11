@@ -1,3 +1,4 @@
+//tenemos un array con los datos de las bebidas
 const data = [
     {
         id:1, 
@@ -31,16 +32,18 @@ const data = [
     }
 ]
 
+//tenemos un array vacio que funcionara como carrito
 const cart = [];
 
+//tenemos la funcion addToCart que pushea una bebida al carrito
 const addToCart = (drink) => {
 
     cart.push(drink)
-    console.log(cart)
     
 }
 
-data.map((element)=>{
+//usamos map() para recorrer el array de bebidas y plasmar los datos de cada bebida en el frontend ( HTML ).
+data.map( (element)=>{
 
     //selecciono el body
     const body = document.querySelector("body");
@@ -66,8 +69,12 @@ data.map((element)=>{
     //establecer class "addCart-btn" al boton creado
     button.setAttribute("class","addCart-btn")
 
-    // Establecer el atributo "onclick" con el objeto element como argumento
-    button.setAttribute("onclick", `addToCart(${JSON.stringify(element)})`);
+    //convertimos el elemento a STRING para que pueda ser pasado como parametro en la funcion addToCart()
+    const stringifyElement = JSON.stringify(element)
+
+    // Establecer el atributo "onclick" y la funcion addToCart() para que al hacer click en el boton
+    // se agregue el elemento al carrito.
+    button.setAttribute("onclick", `addToCart(${ stringifyElement })`);
  
     //insertando las propiedades al contenedor
     container.appendChild(title);
