@@ -28,7 +28,7 @@ const jugador = {
 
 };
 
-// console.log(jugador)
+//console.log(jugador);
 
 //----------Llamar solo a la propiedad de un objeto---------//
 
@@ -39,7 +39,7 @@ const jugador = {
 
 //----------Sintaxis y ejemplo---------//
 
-// console.log( jugador.nacionalidad )
+ //console.log(`Messi es de ${jugador.nacionalidad}`)
 
 //----------Llamar a la propiedad de una propiedad---------//
 
@@ -50,7 +50,7 @@ const jugador = {
 //Consiste en llamar a las propiedades y 
 //asignarles una variable con el nombre de dicha propiedad.
 
-const { nombre, edad, nacionalidad } = jugador ;
+const { nombre, posicion, nacionalidad } = jugador ;
 
 // console.log(nombre)
 // console.log(edad)
@@ -98,14 +98,14 @@ productAdmin.listarProductos();
 //Cabe aclarar que tambien podemos usar destructuracion{} con los metodos
 const { listarProductos } = productAdmin
 
-// listarProductos()
+//listarProductos()
 
 
 //----------LAS CLASES--------//
 
 //Basicamente son generadores de objetos, nosotros tenemos , por decirlo de alguna manera, 
 //el "plano" de un objeto. Por lo que cada objeto que creemos con una clase 
-//tendra metodos y propedades predeterminadas
+//tendra metodos y propiedades predeterminadas
 
 //----------Sintaxis y ejemplo---------//
 
@@ -121,22 +121,16 @@ class Alumno {
 
     }
 
-    apellido = "Vela"
+    Apellido = 0
 
-    saludar() {
+    saludar(){
         console.log(`Hola me llamo ${this.nombre} y tengo ${this.edad} años.`);
     }
 
     bardear(insulto) {
-        console.log(`¿Qué haces ${insulto}?`);
-        this.saludar()
-        console.log(this.apellido)
+
     }
-}
-
-const alumno1 = new Alumno("Carlos", 12);
-
-alumno1.bardear("Gil")
+};
 
 
 

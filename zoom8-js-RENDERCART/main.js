@@ -32,6 +32,8 @@ const data = [
     }
 ]
 
+
+
 //tenemos un array vacio que funcionara como carrito
 const cart = [];
 
@@ -52,29 +54,30 @@ data.map( (element)=>{
     const container = document.createElement("div");
 
     //establecer class "drinks" a container
-    container.setAttribute("class","drinks")
+    container.setAttribute("class","drinks");
 
     //creo elementos que contendran las propiedades
     let title = document.createElement("h3");
     let price = document.createElement("p");
     let type = document.createElement("p");
-    let button = document.createElement("button")
+    let button = document.createElement("button");
 
     //defino las propiedades
     title.innerHTML = element.producto;
     price.innerHTML = `$${element.precio}`;
     type.innerHTML = element.tipo;
-    button.innerHTML = "Agregar al carrito"
+
+    button.innerHTML = "Agregar al carrito";
 
     //establecer class "addCart-btn" al boton creado
     button.setAttribute("class","addCart-btn")
 
     //convertimos el elemento a STRING para que pueda ser pasado como parametro en la funcion addToCart()
-    const stringifyElement = JSON.stringify(element)
+    const stringifyElement = JSON.stringify(element);
 
     // Establecer el atributo "onclick" y la funcion addToCart() para que al hacer click en el boton
     // se agregue el elemento al carrito.
-    button.setAttribute("onclick", `addToCart(${ stringifyElement })`);
+    button.setAttribute("onclick", `addToCart(${ element })`);
  
     //insertando las propiedades al contenedor
     container.appendChild(title);
