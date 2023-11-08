@@ -17,7 +17,7 @@ const container = document.querySelector(".container");
 const newDiv = document.createElement("div");
 
 //Asignar contenido del elemento
-newDiv.innerHTML = "compu";
+newDiv.innerHTML = "<h1 class='newDiv'> HOLA A TODOS SSSS </h1>";
 
 //Establecer un atributo
 newDiv.setAttribute("class","newDiv");
@@ -25,9 +25,7 @@ newDiv.setAttribute("class","newDiv");
 //Agregarle un hijo a un elemento
 container.appendChild(newDiv);
 
-const con = console.log("asdasd")
-
-con
+console.log(newDiv)
 
 
 
