@@ -1,7 +1,7 @@
 //----------LOS OBJETOS---------//
 
 //Los objetos en JavaScript son contenedores que almacenan 
-//datos y funciones relacionadas utilizando un sistema de clave-valor.
+//datos y funciones relacionadas utilizando un sistema de clave-valor { clave : "valor" }
 //Los objetos tienen propiedades las cuales pueden ser un valor, dicho valor puede
 //ser un numero, un "string", un array[] o incluso otro objeto.
 
@@ -30,6 +30,7 @@ const jugador = {
 
 //console.log(jugador);
 
+
 //----------Llamar solo a la propiedad de un objeto---------//
 
 //Para llamar solo a una de las propiedades y no al objeto 
@@ -37,13 +38,12 @@ const jugador = {
 
 //Objeto.Propiedad
 
-//----------Sintaxis y ejemplo---------//
-
  //console.log(`Messi es de ${jugador.nacionalidad}`)
 
-//----------Llamar a la propiedad de una propiedad---------//
-
 // console.log( jugador.competiciones.mundiales )
+
+
+
 
 //----------La destructuracion { }---------//
 
@@ -56,6 +56,10 @@ const { nombre, posicion, nacionalidad } = jugador ;
 // console.log(edad)
 // console.log(nacionalidad)
 
+
+
+
+
 //----------LOS METODOS---------//
 
 //Los metodos son funciones que incorporamos como propiedad de un objeto, 
@@ -66,14 +70,14 @@ const { nombre, posicion, nacionalidad } = jugador ;
 //declaramos un objeto llamado productAdmin, 
 //el cual tiene 2 propiedades
 
-//* productos: Es un array que contendra productos
-//* es un metodo que agrega un producto al array
-//* es un metodo que muestra el array en consola
+//* productos ----------- Es un array que contendra productos
+//* agregarProducto() --- Es un metodo que agrega un producto al array
+//* listarProductos() --- Es un metodo que muestra el array en consola
 
 const productAdmin = {
 
     productos:[],
-    agregarProducto:(newProduct)=>{
+    agregarProducto: (newProduct)=>{
 
         productAdmin.productos.push(newProduct)
         
@@ -85,20 +89,20 @@ const productAdmin = {
 //Para ejecutar un metodo lo hacemos de la siguiente manera:
 
 /*
-
-productAdmin.agregarProducto({
-    id:1, 
-    nombre:"Celular"
-});
-
+productAdmin.agregarProducto( { id:1, nombre:"Celular" } );
 productAdmin.listarProductos();
-
 */
 
 //Cabe aclarar que tambien podemos usar destructuracion{} con los metodos
 const { listarProductos } = productAdmin
 
 //listarProductos()
+
+
+
+
+
+
 
 
 //----------LAS CLASES--------//
@@ -110,27 +114,59 @@ const { listarProductos } = productAdmin
 //----------Sintaxis y ejemplo---------//
 
 //Las clases pueden tener un "constructor", el mismo funciona como un espacio en el que 
-//podemos establecer parametros al momento de crear un objeto usando la clase.
+//podemos establecer parametros al momento de crear un objeto de una determinada clase
 
-class Alumno {
+class Empresa {
 
-    constructor(nombre, edad) {
+    //creamos las variables
+    contador;
+    arrayDeEmpleados;
 
-        this.nombre = nombre;
-        this.edad = edad;
+    //usamos el contructor para asignarles el valor
+    //en donde a su vez tenemos un parametro que sera 
+    //el nombre de la empresa en donde trabaja el usuario
+    
+    constructor(empresa){
+
+        this.empresa = empresa; //el nombre de la empresa se pasara como parametro al crear la clase
+        this.contador = 0;
+        this.arrayDeEmpleados = [];
+
+    };
+
+    //pasamos como parametro un objeto que contendra los datos del empleado Ej: { nombre:"Leo", edad:34 }
+    agregarEmpleado = ( objEmpleado ) => {
+
+        //aumentamos contador en +1
+        this.contador++
+
+        //pusheamos en arrayDeEmpleados un nuevo objeto
+        this.arrayDeEmpleados.push({ 
+
+            id:this.contador,
+            empresa:this.empresa,
+            ...objEmpleado, //agregamos las propiedades de objEmpleado usando ...spread
+            
+        });
+
+    }
+    
+    //listamos los empleados de la empresa
+    listarEmpleados = () => {
+
+        console.log(this.arrayDeEmpleados);
 
     }
 
-    Apellido = 0
+}
 
-    saludar(){
-        console.log(`Hola me llamo ${this.nombre} y tengo ${this.edad} años.`);
-    }
+const mercadoLibre = new Empresa("Mercado Libre");
 
-    bardear(insulto) {
+mercadoLibre.agregarEmpleado( {nombre:"Carlos", edad:32} );
+mercadoLibre.agregarEmpleado( {nombre:"Juan", edad:28} );
+mercadoLibre.agregarEmpleado( {nombre:"Mia", edad:24} );
 
-    }
-};
+mercadoLibre.listarEmpleados();
 
 
 

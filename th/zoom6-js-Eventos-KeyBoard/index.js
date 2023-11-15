@@ -1,21 +1,21 @@
 
-
 const verifyKeyboard = (tecla, callback) => {
 
     window.addEventListener("keydown", (event) => {
 
-        if(event.key.toLocaleLowerCase() == tecla.toLocaleLowerCase()){ callback() }
+        if( event.key.toLocaleLowerCase() == tecla.toLocaleLowerCase() ){ callback() }
 
     })
 
 }
 
 
-verifyKeyboard("Enter", ()=>{
+verifyKeyboard("Enter",()=>{
 
-    console.log("Se apreto W")
-
+    alert("Se activo el Enter")
+    
 })
+
 
 verifyKeyboard("s", ()=>{
 
@@ -52,4 +52,4 @@ se puede acceder y borrar utilizando inputElement.value y inputElement.value = '
 
 ¡Espero que este enunciado te sea útil para crear tu ejercicio!
 
- */
+*/
