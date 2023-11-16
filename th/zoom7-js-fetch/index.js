@@ -16,11 +16,7 @@ const useData = async() => {
 
 }
 
-useData()
-
-
-
-
+useData();
 
 //PROMESAS
 /*
